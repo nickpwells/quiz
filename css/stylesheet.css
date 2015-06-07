@@ -1,4 +1,5 @@
-.cover-page {
+.cover-page,
+.question-page {
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -9,11 +10,17 @@
 }
 
 .cover-page .container {
-	border: 1px solid red;
 	width: 40%;
 	text-align: center;
 	position: relative;
 	margin: 11em auto auto auto;
+}
+
+.question-page .container {
+	width: 45%;
+	text-align: center;
+	position: relative;
+	margin: 8.5em auto auto auto;
 }
 
 .container h1 {
@@ -30,10 +37,28 @@
 h1, h2 {
 	font-family: 'Ubuntu', sans-serif;
 	color: white;
-	text-shadow: 0 0 5px rgba(0,0,0,0.5);
+	text-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-.start-quiz {
+.container .answers {
+	list-style: none;
+	padding: 0px;
+}
+
+.container .answers > li {
+	margin-bottom: .3em;
+}
+
+.container .answer-explanation > p {
+	color: white;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 2em;
+	text-align: left;
+	padding: 0 2.5em 0 2.5em;
+}
+
+.start-quiz,
+.answer {
 	-moz-box-shadow:inset 0px 11px 14px -3px #f2fadc;
 	-webkit-box-shadow:inset 0px 11px 14px -3px #f2fadc;
 	box-shadow:inset 0px 11px 14px -3px #f2fadc;
@@ -51,8 +76,8 @@ h1, h2 {
 	border:1px solid #b2b8ad;
 	display:inline-block;
 	cursor:pointer;
-	color:#757d6f;
-	font-family:Georgia;
+	color:#484111;
+	font-family: 'Roboto Condensed', sans-serif;
 	font-size:15px;
 	font-weight:bold;
 	padding:6px 24px;
