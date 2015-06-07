@@ -5,21 +5,22 @@
 	<title>Space Quiz</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/stylesheet.css">
-	<!--<link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">-->
 	<link href='https://fonts.googleapis.com/css?family=Ubuntu|Roboto+Condensed' rel='stylesheet' type='text/css'>
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/app.js"></script>
 </head>
 <body>
-	<!--<section class="cover-page" display="block">
+	<section class="cover-page">
 		<div class="container">
 			<h1>Welcome to the <span class="space">space</span> quiz!</h1>
-			<h2>Just click below to test your skills about the final frontier</h2>
+			<h3>Just click below to test your skills about the final frontier</h3>
 			<button class="start-quiz" type="button">Ready?</button>
 		</div>
-	</section>-->
-	<section class="question-page" display="none">
+	</section>
+	<section class="question-page">
 		<div class="container">
 			<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
-			<!--<ul class="answers">
+			<ul class="answers">
 				<li>
 					<button class="answer" type="button">Lorem ipsum dolo.</button>
 				</li>
@@ -32,10 +33,17 @@
 				<li>
 					<button class="answer" type="button">Lorem ipsum dolo.</button>
 				</li>
-			</ul>-->
+			</ul>
 			<div class="answer-explanation">
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. </p>
 			</div>
+		</div>
+	</section>
+	<section class="last-page">
+		<div class="container">
+			<h2><span class="score-message">Ouch. That wasn't so hot!</span>  You got <span class="correct-score">0</span> out of 10</h2>
+			<p class="nasa-facts">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
+			<button class="restart-quiz" type="button">Play Again?</button>
 		</div>
 	</section>
 </body>
