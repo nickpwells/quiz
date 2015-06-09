@@ -61,9 +61,19 @@ $(document).ready(function() {
 		this.bEl.className = "answer";
 		var t = document.createTextNode(answer);
 		this.bEl.appendChild(t);
-		document.getElementById("answer-container").appendChild(this.bEl);
-		document.getElementById("answer-container").appendChild(document.createElement("br"));
+		document.getElementById("button-container").appendChild(this.bEl);
+		document.getElementById("button-container").appendChild(document.createElement("br"));
 	}
+
+	//creates fact generated after answering question
+	function createQuestionFact (fact) {
+		this.fEl = document.createElement("p");
+		var t = document.createTextNode(fact);
+		this.fEl.appendChild(t);
+		document.getElementById("answer-container").appendChild(this.fEl);
+		document.getElementById("answer-container").appendChild(this.fEl);
+	}
+
 
 	//creates question then four answer buttons
 	function createQuestionPage (question) {
@@ -76,15 +86,16 @@ $(document).ready(function() {
 		}
 	}
 
-	function createQuestionFact () {
-		
+	function displayQuestionFact (fact) {
+		$("#button-container").on('click', '.answer', function(e){
+			e.preventDefault;
+			var userAnswer = $(this).text();
+			console.log(userAnswer);
+			createQuestionFact(fact);
+		});
 	}
 
-	/*var questionTest = "Question Test";
-	var buttonTest = "ButtonTest";
+	createQuestionPage(questionsArray[0].question);
+	displayQuestionFact(questionsArray[0].fact);
 
-	createQuestion(questionTest);
-	createAnswerButton(buttonTest);*/
-
-	//createQuestionPage(questionsArray[0].question);
 });

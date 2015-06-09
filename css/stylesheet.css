@@ -21,11 +21,16 @@ body {
 	margin: 11em auto auto auto;
 }
 
-.question-page #answer-container {
+#answer-container,
+#button-container {
 	width: 45%;
 	text-align: center;
 	position: relative;
 	margin: 8.5em auto auto auto;
+}
+
+#button-container {
+	margin: 1em auto auto auto;
 }
 
 h1 {
@@ -46,16 +51,15 @@ h1, h2 {
 	text-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-#answer-container .answer{
+#button-container .answer{
 	margin-bottom: .3em;
 }
 
-#answer-container .answer-explanation > p {
+#answer-container p {
 	color: white;
 	font-family: 'Roboto Condensed', sans-serif;
-	font-size: 2em;
+	font-size: 1.9em;
 	text-align: left;
-	padding: 0 2.5em 0 2.5em;
 }
 
 .nasa-facts {
