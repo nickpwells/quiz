@@ -2,13 +2,13 @@ body {
 	background-image: url('../images/unsplash.JPG');
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position-y: -230px;
+	overflow: auto;
 }
 
 .cover-page,
 .question-page,
 .last-page {
-	position: fixed;
+	position: relative;
 	width: 100%;
 	height: 100%;
 }
@@ -55,7 +55,11 @@ h1, h2 {
 	margin-bottom: .3em;
 }
 
-#answer-container p {
+#button-container .next-question {
+	margin-top: 3em;
+}
+
+#button-container p {
 	color: white;
 	font-family: 'Roboto Condensed', sans-serif;
 	font-size: 1.9em;
@@ -72,6 +76,7 @@ h1, h2 {
 
 .start-quiz,
 .answer,
+.next-question,
 .restart-quiz {
 	-moz-box-shadow:inset 0px 11px 14px -3px #f2fadc;
 	-webkit-box-shadow:inset 0px 11px 14px -3px #f2fadc;
@@ -101,6 +106,7 @@ h1, h2 {
 }
 .start-quiz:hover,
 .answer:hover,
+.next-question,
 .restart-quiz:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #9ba892), color-stop(1, #dbe6c4));
 	background:-moz-linear-gradient(top, #9ba892 5%, #dbe6c4 100%);
@@ -113,6 +119,7 @@ h1, h2 {
 }
 .start-quiz:active,
 .answer:active,
+.next-question,
 .restart-quiz:active {
 	position:relative;
 	top:1px;
