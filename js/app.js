@@ -81,7 +81,6 @@ $(document).ready(function() {
 		var t = document.createTextNode(fact);
 		this.fEl.appendChild(t);
 		document.getElementById("button-container").appendChild(this.fEl);
-		document.getElementById("button-container").appendChild(this.fEl);
 	}
 
 
