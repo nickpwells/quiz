@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+<<<<<<< HEAD
 	//question object
 	var questionsArray = [
 		{
@@ -124,4 +125,9 @@ $(document).ready(function() {
 
 	createQuestionPage(0);
 	switchPages();
+=======
+	console.log('hello world')
+
+
+>>>>>>> gh-pages
 });
