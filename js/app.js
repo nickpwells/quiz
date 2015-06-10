@@ -113,12 +113,14 @@ $(document).ready(function() {
 		temp(count);
 	}
 
+	var num = 1;
 	//switch between pages
 	function switchPages () {
 		$("#button-container").on('click', '.next-question', function(e){
 			e.preventDefault;
 			$("#button-container, #answer-container").empty();
-			createQuestionPage(1);
+			createQuestionPage(num);
+			num = num + 1;
 		});
 	}
 
