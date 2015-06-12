@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+	var answersCorrect = 0;//declares correct answers count
 	//question object
 	var questionsArray = [
 		{
@@ -34,16 +36,14 @@ $(document).ready(function() {
 		}
 	]
 
-	//fades out main screen and displays first question
-	function startGame () {
-		$('.cover-page').fadeOut();
-	}
-
-	//click Ready button to begin game
-	$('.start-quiz').click(function(e){
-		e.preventDefault
-		startGame();
-	});
+	var correctScoreMessage = [
+		"You didn't get a single one right!  Better try again.",
+		"Ouch!  Not so hot, but at least you got one.  Better than nothing",
+		"Well, you didn't do too great.  Why don't you try one more time?",
+		"Good news:  You didn't fail.  Bad news:  You still got a D",
+		"Not too bad!  You really know your stuff, but you're not an expert",
+		"100%!  Well done friend!  You really know your universe."
+	]
 
 	//append question elements to page
 	function createQuestion (question) {
@@ -83,12 +83,11 @@ $(document).ready(function() {
 		document.getElementById("button-container").appendChild(this.fEl);
 	}
 
-
 	//creates question then four answer buttons
 	function createQuestionPage (count) {
+		switchPages();
 		var question = questionsArray[count].question;
-
-		createQuestion(questionsArray[count].question);
+		createQuestion(question);
 		var i = 0;
 		//creates and appends four buttons from questionsArray.answers
 		for (i; i <= 3; i++){
@@ -96,33 +95,71 @@ $(document).ready(function() {
 			createAnswerButton(currentAnswer);
 		}
 
-		var temp = function displayQuestionFact (fact) {
-
-			$("#button-container").on('click', '.answer', function(e){
+		function displayQuestionFact (fact) {
+			$("#button-container").one('click', '.answer', function(e){
 				e.preventDefault;
-				//stores user answer to compare to correct
-				var userAnswer = $(this).text();
-				var correctAnswer = questionsArray[fact].correctAnswer;//references correct answer key value
+				
+				var userAnswer = $(this).text();//stores user answer to compare to correct
+				var answerArrayIndex = questionsArray[fact].correctAnswer;//references answers array index with correct answer
+				var correctAnswer = questionsArray[fact].answers[answerArrayIndex];//stores correct answer in text
+
+				if (userAnswer === correctAnswer) {answersCorrect += 1;}//keeps track of correct answers
 				
 				createQuestionFact(questionsArray[fact].fact);
-				createNextQuestionButton('Next Question');
+				if (num === 4){
+					createNextQuestionButton('See Your Score');
+				}
+				else {
+					createNextQuestionButton('Next Question');
+				}
 			});
 		}
-
-		temp(count);
+		displayQuestionFact(count);
 	}
 
-	var num = 1;
+	function displayUserScore () {
+		$('.last-page .container').prepend("<h2 class='score-message'>"+correctScoreMessage[answersCorrect]+"</h2>");
+		$('.last-page .container').prepend("<h2 class='score'>You got "+answersCorrect+" out of 5</h2>");
+	}
+
+	var num = 0
+
+	$('.start-quiz').click(function(e){
+		e.preventDefault;
+		num = 0;//resets question count
+		$('.cover-page').hide();
+		$('.question-page').show();
+		createQuestionPage(num);
+	});
+
 	//switch between pages
 	function switchPages () {
-		$("#button-container").on('click', '.next-question', function(e){
+		$("#button-container").one('click', '.next-question', function(e){
 			e.preventDefault;
 			$("#button-container, #answer-container").empty();
-			createQuestionPage(num);
 			num = num + 1;
+			if (num < 5){createQuestionPage(num);}
+			else {displayLastPage();}
 		});
 	}
 
-	createQuestionPage(0);
-	switchPages();
+	function displayLastPage () {
+		$("#button-container, #answer-container").empty();
+		displayUserScore();
+		$('.question-page').hide();
+		$('.last-page').show();
+		restartQuiz();
+	}
+
+	function restartQuiz () {
+		$(".restart-quiz").click(function(e){
+			e.preventDefault;
+			$("#button-container, #answer-container").empty();
+			$('.last-page').hide();
+			$('.cover-page').show();
+		});	
+	}
+
 });
+
+	
