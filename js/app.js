@@ -155,6 +155,8 @@ $(document).ready(function() {
 		$(".restart-quiz").click(function(e){
 			e.preventDefault;
 			$("#button-container, #answer-container").empty();
+			$(".last-page .container h2").remove();
+			answersCorrect = 0;
 			$('.last-page').hide();
 			$('.cover-page').show();
 		});	
